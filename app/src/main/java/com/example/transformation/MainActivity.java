@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
+    boolean isCarVisible = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,11 +15,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void eraseCar(View view) {
-        ImageView carImageView = findViewById(R.id.carImageView);
-        carImageView.animate().alpha(0).setDuration(3000);
+        if(isCarVisible) {
+            ImageView carImageView = findViewById(R.id.carImageView);
+            carImageView.animate().alpha(0).setDuration(3000);
 
-        ImageView beeImageView = findViewById(R.id.beeImageView);
-        beeImageView.animate().alpha(1).setDuration(3000);
+            ImageView beeImageView = findViewById(R.id.beeImageView);
+            beeImageView.animate().alpha(1).setDuration(3000);
+            isCarVisible = false;
+        } else {
+            ImageView carImageView = findViewById(R.id.carImageView);
+            carImageView.animate().alpha(1).setDuration(3000);
+
+            ImageView beeImageView = findViewById(R.id.beeImageView);
+            beeImageView.animate().alpha(0).setDuration(3000);
+            isCarVisible = true;
+
+        }
+
     }
 }
 
