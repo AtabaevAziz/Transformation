@@ -12,22 +12,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ImageView carImageView = findViewById(R.id.carImageView);
+        carImageView.animate().setDuration(3000);
     }
 
     public void eraseCar(View view) {
         if(isCarVisible) {
             ImageView carImageView = findViewById(R.id.carImageView);
-            carImageView.animate().alpha(0).setDuration(3000);
+            carImageView.animate().rotation(3600).alpha(0).setDuration(3000);
 
             ImageView beeImageView = findViewById(R.id.beeImageView);
-            beeImageView.animate().alpha(1).setDuration(3000);
+            beeImageView.animate().rotation(3600).alpha(1).setDuration(3000);
             isCarVisible = false;
         } else {
             ImageView carImageView = findViewById(R.id.carImageView);
-            carImageView.animate().alpha(1).setDuration(3000);
+            carImageView.animate().rotation(0).alpha(1).setDuration(3000);
 
             ImageView beeImageView = findViewById(R.id.beeImageView);
-            beeImageView.animate().alpha(0).setDuration(3000);
+            beeImageView.animate().rotation(0).alpha(0).setDuration(3000);
             isCarVisible = true;
 
         }
